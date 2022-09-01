@@ -5,3 +5,10 @@
 .card-tarefa {
   border: 1px solid#ccc;
 }
+
+/* select {
+  display: block;
+} */
+.input {
+  display: block;
+}
