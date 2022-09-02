@@ -1,25 +1,24 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "title": "Estudar Flexbox",
-      "dueTo": "2022-05-01T12:00:00.000Z",
-      "project": "Estudos",
-      "usuario": "joao@example.com"
-    },
-    {
-      "id": 2,
-      "title": "Estudar Float",
-      "dueTo": "2022-05-01T12:00:00.000Z",
-      "project": "Estudos",
-      "usuario": "joao@example.com"
-    },
-    {
-      "id": 3,
-      "title": "Pagar IPTU",
-      "dueTo": "2022-05-01T12:00:00.000Z",
+      "title": "CRUD VUETIFY",
       "project": "Financeiro",
-      "usuario": "joao@example.com"
+      "dueTo": "2022-09-19",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "title": "xdzxvdzvdz",
+      "dueTo": "2022-09-20",
+      "project": "Estudos",
+      "usuario": null
+    },
+    {
+      "id": 5,
+      "title": "ascadc",
+      "dueTo": "2022-09-02",
+      "project": "Financeiro",
+      "usuario": null
     }
   ]
 }
