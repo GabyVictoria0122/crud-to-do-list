@@ -18,17 +18,45 @@
 
 <body>
   <div id="app">
-    <nav class="#d500f9 purple accent-3
-    ">
-      <div class="nav-wrapper"></div>
+    <nav class=" purple accent-3">
+      <div class="nav-wrapper">
+        <div class="filtro">
+          <nav class=" purple accent-3">
+            <!-- <div class="nav-wrapper"> -->
+            <form>
+              <div class="input-field">
+                <input id="search" type="search" required v-model="textFilter" placeholder="Pesquisar tarefa...">
+                <label class="label-icon" for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
+              </div>
+            </form>
+          </nav>
+        </div>
+      </div>
     </nav>
+
+
+    <div v-show="load" class=" load center-align ">
+      <div class="preloader-wrapper big active center-align">
+        <div class="spinner-layer spinner-blue-only ">
+          <div class="circle-clipper left">
+            <div class="circle "></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle "></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="container" v-show="!modoAdicionar">
       <div class="section">
         <!--   Icon Section   -->
         <div class="row">
           <!-- card de tarefa que repete para cada item do array -->
-          <div v-for="tarefa in tasks" class="card horizontal">
+          <div v-for="tarefa in filterTasks" class="card horizontal">
             <div class="card-stacked">
               <div class="card-content">
                 <p>
@@ -46,7 +74,7 @@
           </div>
         </div>
       </div>
-      <div class="center-align add">
+      <div class="plus right-align add">
         <a class=" btn-floating btn-large waves-effect waves-light" @click="show()">
           <i class="fa-solid fa-plus light-blue lighten-2 "></i>
         </a>
@@ -136,8 +164,8 @@
                 <label for="dueTo">Date due to</label>
               </div>
               <div class="input-field col s12"></div>
-              <a @click="editTaskPut" class="waves-effect waves-light btn-large light-blue lighten-2"
-                id="btnSave">Save</a>
+              <a @click="editTaskPut" class="waves-effect waves-light btn-large light-blue lighten-2" id="btnSave"
+                href="./tasksList.html">Save</a>
           </div>
           </form>
         </div>
@@ -145,6 +173,7 @@
     </div>
   </div>
   </div>
+
 
 
 

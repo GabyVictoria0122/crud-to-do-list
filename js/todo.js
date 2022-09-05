@@ -4,6 +4,8 @@ var app = new Vue({
         message: 'Olá Vue',
         tasks: [
         ],
+        load: false,
+        textFilter: '',
         task: {
             "id": null,
             "title": null,
@@ -25,9 +27,14 @@ var app = new Vue({
             this.modoAdicionar = true
         },
         getTasks() {
+            this.load = true
             fetch("http://localhost:3000/tasks")
                 .then((response) => response.json())
-                .then((tarefasJson) => (this.tasks = tarefasJson));
+                .then((tarefasJson) => {
+                    (this.tasks = tarefasJson)
+                    this.load = false
+                });
+
         },
         postTasks() {
             const data = this.task
@@ -38,6 +45,7 @@ var app = new Vue({
                 method: "POST",
                 body: son,
             })
+            this.getTasks()
         },
         editTaskPut() {
             fetch(`http://localhost:3000/tasks/${this.taskFrom.id}`, {
@@ -49,6 +57,7 @@ var app = new Vue({
                     dueTo: this.taskFrom.dueTo
                 })
             })
+            this.getTasks()
         },
 
         editTask(tarefaId) {
@@ -83,9 +92,16 @@ var app = new Vue({
                 method: "DELETE",
                 headers: { "Content-type": "application/json; charset=UTF-8" }
             })
+            this.getTasks()
         }
     },
     created() {
         this.getTasks()
+    },
+    computed: {
+        filterTasks() {
+            return this.tasks.filter((el) =>
+                el.title.toLowerCase().includes(this.textFilter.toLowerCase()))
+        }
     }
 })
